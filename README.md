@@ -1,0 +1,2 @@
+# Membuat form login terminal menggunakan golang
+membuat form login berbasis terminal menggunakan bahasa golang dimana menggunakan md5 sebagai encrypt password dan juga menggunakan defer,exit, recover, panic, pointer, method dan juga interface bawaan golang
