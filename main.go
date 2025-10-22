@@ -25,8 +25,7 @@ func main() {
 		case 2:
 			authSystem.Login()
 		case 3:
-
-			fmt.Println("Menu Forgot Password dipilih")
+			authSystem.ForgotPassword()
 		case 0:
 			fmt.Println("Exiting program...")
 			os.Exit(0)
