@@ -8,5 +8,6 @@ type Auth struct {
 type Authenticator interface {
 	Register()
 	Login()
+	ForgotPassword()
 }
 
