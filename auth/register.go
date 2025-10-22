@@ -68,4 +68,4 @@ func (a *Auth) Register() {
 	})
 
 	fmt.Println("Register berhasil!")
-}
+} 
