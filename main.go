@@ -3,9 +3,12 @@ package main
 import (
 	"fmt"
 	"os"
+
+	"main.go/auth"
 )
 
 func main() {
+	authSystem := &auth.Auth{Users: []*auth.User{}}
 	var choice int
 	for {
 		fmt.Println("\n===== WELCOME TO SYSTEM =====")
@@ -18,10 +21,9 @@ func main() {
 
 		switch choice {
 		case 1:
-			fmt.Println("Menu Login dipilih")
+			authSystem.Register()
 		case 2:
-
-			fmt.Println("Menu Login dipilih")
+			authSystem.Login()
 		case 3:
 
 			fmt.Println("Menu Forgot Password dipilih")
