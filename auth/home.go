@@ -63,6 +63,6 @@ func (a *Auth) Home(name string) {
 			fmt.Println("Invalid choice")
 			fmt.Println("Press Enter to return to Home...")
 			reader.ReadString('\n')
-		}
+		} 
 	}
 }
