@@ -6,15 +6,33 @@ import (
 	"os"
 )
 
+type MenuLoggedIn struct {
+	name string
+	menu []string
+}
+type MenuDisplay interface {
+	OutputMenu()
+}
+
+func (m MenuLoggedIn) OutputMenu() {
+	fmt.Printf("\n===== HOME =====\nWelcome %s!\n", m.name)
+	for i, item := range m.menu {
+		fmt.Printf("%d. %s\n", i+1, item)
+	}
+	fmt.Println("\n0. Exit")
+	fmt.Print("Choose menu: ")
+}
+
 func (a *Auth) Home(name string) {
 	reader := bufio.NewReader(os.Stdin)
 
+	var menuDisplay MenuDisplay = MenuLoggedIn{
+		name: name,
+		menu: []string{"List all users", "Logout"},
+	}
+
 	for {
-		fmt.Printf("\n===== HOME =====\nWelcome %s!\n", name)
-		fmt.Println("1. List all users")
-		fmt.Println("2. Logout")
-		fmt.Println("\n0. Exit")
-		fmt.Print("Choose menu: ")
+		menuDisplay.OutputMenu()
 
 		var choice int
 		fmt.Scan(&choice)
@@ -29,12 +47,12 @@ func (a *Auth) Home(name string) {
 				fmt.Printf("Password: %s\n\n", u.Password)
 			}
 			fmt.Print("Press Enter to back...")
-			reader.ReadString('\n') 
+			reader.ReadString('\n')
 
 		case 2:
 			fmt.Println("Logging out...")
 			reader.ReadString('\n')
-			return 
+			return
 
 		case 0:
 			fmt.Println("Exiting program...")
